@@ -1,0 +1,33 @@
+=@crontab
+%form{:action => "/", :method => "post"}
+  %select{:multiple => true, :name => "minute[]", :size => 10, :style => "width: 50px"}
+    -(1..60).each do |m|
+      %option{:value => m}
+        =m
+
+  %select{:multiple => true, :name => "hour[]", :size => 10, :style => "width: 50px"}
+    -(1..24).each do |m|
+      %option{:value => m}
+        =m
+
+
+  %select{:multiple => true, :name => "day_of_month[]", :size => 10, :style => "width: 50px"}
+    -(1..31).each do |m|
+      %option{:value => m}
+        =m
+
+
+  %select{:multiple => true, :name => "month[]", :size => 10, :style => "width: 50px"}
+    -(1..12).each do |m|
+      %option{:value => m}
+        =m
+
+
+  %select{:multiple => true, :name => "day_of_week[]", :size => 10, :style => "width: 50px"}
+    -(1..7).each do |m|
+      %option{:value => m}
+        =m
+
+  %input{:type => "text", :name => "command"}
+
+  %input{:type => "submit", :value => "Submit"}
