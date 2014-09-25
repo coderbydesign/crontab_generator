@@ -1,39 +1,47 @@
-=@crontab
-%form{:action => "/", :method => "post"}
+!!!
+%html
+  %head
+    %link{:rel => :stylesheet, :type => "text/css", :href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"}
+    %title Crontab Generator
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+    .container
+      =@crontab
+      %form{:action => "/", :method => "post"}
 
-  %fieldset
-    %label{:for => "minute"} Minute
-    %select{:multiple => true, :name => "minute[]", :size => 10, :style => "width: 50px"}
-      -(1..60).each do |m|
-        %option{:value => m}
-          =m
+        %fieldset
+          %label{:for => "minute"} Minute
+          %select{:multiple => true, :name => "minute[]", :size => 10, :style => "width: 50px"}
+            -(1..60).each do |m|
+              %option{:value => m}
+                =m
 
-  %fieldset
-    %label{:for => "hour"} Hour of the day
-    %select{:multiple => true, :name => "hour[]", :size => 10, :style => "width: 50px", :id => "hour"}
-      -(1..24).each do |m|
-        %option{:value => m}
-          =m
+        %fieldset
+          %label{:for => "hour"} Hour of the day
+          %select{:multiple => true, :name => "hour[]", :size => 10, :style => "width: 50px", :id => "hour"}
+            -(1..24).each do |m|
+              %option{:value => m}
+                =m
 
-  %fieldset
-    %label{:for => "day_of_month"} Day of the month
-    %select{:multiple => true, :name => "day_of_month[]", :size => 10, :style => "width: 50px", :id => "day_of_month"}
-      -(1..31).each do |m|
-        %option{:value => m}
-          =m
+        %fieldset
+          %label{:for => "day_of_month"} Day of the month
+          %select{:multiple => true, :name => "day_of_month[]", :size => 10, :style => "width: 50px", :id => "day_of_month"}
+            -(1..31).each do |m|
+              %option{:value => m}
+                =m
 
-  %fieldset
-    %label{:for => "month"} Month
-    %select{:multiple => true, :name => "month[]", :size => 10, :style => "width: 50px", :id => "month"}
-      -(1..12).each do |m|
-        %option{:value => m}
-          =m
+        %fieldset
+          %label{:for => "month"} Month
+          %select{:multiple => true, :name => "month[]", :size => 10, :style => "width: 50px", :id => "month"}
+            -(1..12).each do |m|
+              %option{:value => m}
+                =m
 
-  %fieldset
-    %label{:for => "day_of_week"} Day of the week
-    %select{:multiple => true, :name => "day_of_week[]", :size => 10, :style => "width: 50px", :id => "day_of_week"}
-      -(1..7).each do |m|
-        %option{:value => m}
-          =m
+        %fieldset
+          %label{:for => "day_of_week"} Day of the week
+          %select{:multiple => true, :name => "day_of_week[]", :size => 10, :style => "width: 50px", :id => "day_of_week"}
+            -(1..7).each do |m|
+              %option{:value => m}
+                =m
 
-  %input{:type => "submit", :value => "Submit"}
+        %input.btn{:type => "submit", :value => "Submit"}
