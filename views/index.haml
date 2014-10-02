@@ -6,6 +6,9 @@
     %title Crontab Generator
   %body
     .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %a.navbar-brand Crontab Generator
     .container.main
       =@crontab
       %form.form.form-inline{:action => "/", :method => "post"}
