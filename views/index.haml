@@ -3,6 +3,11 @@
   %head
     %link{:rel => :stylesheet, :type => "text/css", :href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"}
     %link{:rel => :stylesheet, :type => "text/css", :href => "/css/style.css"}
+    %link{:rel => :stylesheet, :type => "text/css", :href => "/css/multi-select.css"}
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+    %script{:src => "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"}
+    %script{:src => "/js/multi-select.js"}
+    %script{:src => "/js/app.js"}
     %title Crontab Generator
   %body
     .navbar.navbar-inverse.navbar-fixed-top
@@ -11,39 +16,39 @@
           %a.navbar-brand Crontab Generator
     .container.main
       =@crontab
-      %form.form.form-inline{:action => "/", :method => "post"}
+      %form.form{:action => "/", :method => "post"}
 
         .form-group
           %label{:for => "minute"} Minute
-          %select{:multiple => true, :name => "minute[]", :size => 10, :style => "width: 50px"}
+          %select.multiselect{:multiple => "multiple", :name => "minute[]", :size => 10, :style => "width: 50px"}
             -(1..60).each do |m|
               %option{:value => m}
                 =m
 
         .form-group
           %label{:for => "hour"} Hour of the day
-          %select{:multiple => true, :name => "hour[]", :size => 10, :style => "width: 50px", :id => "hour"}
+          %select.multiselect{:multiple => true, :name => "hour[]", :size => 10, :style => "width: 50px", :id => "hour"}
             -(1..24).each do |m|
               %option{:value => m}
                 =m
 
         .form-group
           %label{:for => "day_of_month"} Day of the month
-          %select{:multiple => true, :name => "day_of_month[]", :size => 10, :style => "width: 50px", :id => "day_of_month"}
+          %select.multiselect{:multiple => true, :name => "day_of_month[]", :size => 10, :style => "width: 50px", :id => "day_of_month"}
             -(1..31).each do |m|
               %option{:value => m}
                 =m
 
         .form-group
           %label{:for => "month"} Month
-          %select{:multiple => true, :name => "month[]", :size => 10, :style => "width: 50px", :id => "month"}
+          %select.multiselect{:multiple => true, :name => "month[]", :size => 10, :style => "width: 50px", :id => "month"}
             -(1..12).each do |m|
               %option{:value => m}
                 =m
 
         .form-group
           %label{:for => "day_of_week"} Day of the week
-          %select{:multiple => true, :name => "day_of_week[]", :size => 10, :style => "width: 50px", :id => "day_of_week"}
+          %select.multiselect{:multiple => true, :name => "day_of_week[]", :size => 10, :style => "width: 50px", :id => "day_of_week"}
             -(1..7).each do |m|
               %option{:value => m}
                 =m
