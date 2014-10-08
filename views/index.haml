@@ -15,7 +15,6 @@
         .navbar-header
           %a.navbar-brand Crontab Generator
     .container.main
-      =@crontab
       %form.form{:action => "/", :method => "post"}
 
         .form-group
@@ -54,3 +53,4 @@
                 =m
 
         %input.btn{:type => "submit", :value => "Submit"}
+        %input{:value => @crontab || "* * * * *"}
