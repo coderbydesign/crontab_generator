@@ -26,31 +26,35 @@
 
         .form-group
           %label{:for => "hour"} Hour of the day
-          %select.multiselect{:multiple => true, :name => "hour[]", :size => 10, :style => "width: 50px", :id => "hour"}
+          %select.multiselect#hour{:multiple => true, :name => "hour[]", :size => 10, :style => "width: 50px"}
             -(1..24).each do |m|
               %option{:value => m}
                 =m
 
         .form-group
           %label{:for => "day_of_month"} Day of the month
-          %select.multiselect{:multiple => true, :name => "day_of_month[]", :size => 10, :style => "width: 50px", :id => "day_of_month"}
+          %select.multiselect#day_of_month{:multiple => true, :name => "day_of_month[]", :size => 10, :style => "width: 50px"}
             -(1..31).each do |m|
               %option{:value => m}
                 =m
 
         .form-group
           %label{:for => "month"} Month
-          %select.multiselect{:multiple => true, :name => "month[]", :size => 10, :style => "width: 50px", :id => "month"}
+          %select.multiselect#month{:multiple => true, :name => "month[]", :size => 10, :style => "width: 50px"}
             -(1..12).each do |m|
               %option{:value => m}
                 =m
 
         .form-group
           %label{:for => "day_of_week"} Day of the week
-          %select.multiselect{:multiple => true, :name => "day_of_week[]", :size => 10, :style => "width: 50px", :id => "day_of_week"}
+          %select.multiselect#day_of_week{:multiple => true, :name => "day_of_week[]", :size => 10, :style => "width: 50px"}
             -(1..7).each do |m|
               %option{:value => m}
                 =m
 
+        .form-group
+          %label{:for => "command"} Command to execute
+          %input#command{:type => "text", :name => "command"}
+
         %input.btn{:type => "submit", :value => "Submit"}
-        %input{:value => @crontab || "* * * * *"}
+        =@crontab
