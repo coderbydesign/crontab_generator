@@ -17,6 +17,10 @@
         .navbar-header
           %a.navbar-brand Crontab Generator
     .container.main
+      -if @crontab
+        .alert.alert-warning
+          %strong Your crontab command:
+          =@crontab
       %form.form{:action => "/", :method => "post"}
 
         .form-group
@@ -59,4 +63,3 @@
           %input#command{:type => "text", :name => "command"}
 
         %input.btn{:type => "submit", :value => "Submit"}
-        =@crontab
